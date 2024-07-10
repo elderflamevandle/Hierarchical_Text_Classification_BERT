@@ -62,7 +62,7 @@ The model is evaluated using the following metrics for each category level:
 
 Our model achieved the following performance on the test set:
 
-![Model Performance](https://drive.google.com/file/d/1fM6-Wpe2nSJ0PCw3_V-sZLq78PcE9_Ko/view?usp=drive_link)
+![Model Performance](results.png)
 
 ## Future Work
 
