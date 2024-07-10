@@ -1,0 +1,210 @@
+Some weights of the model checkpoint at bert-base-uncased were not used when initializing BertModel: ['cls.seq_relationship.bias', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.bias', 'cls.predictions.transform.dense.bias', 'cls.predictions.decoder.weight', 'cls.predictions.transform.dense.weight', 'cls.seq_relationship.weight']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+
+
+Epoch 1/20
+Training: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████| 500/500 [02:52<00:00,  2.90it/s]
+Validating: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████| 125/125 [00:14<00:00,  8.69it/s]
+Train Loss: 8.7897, Val Loss: 6.7511
+Cat1 Loss: 0.8633, Cat2 Loss: 2.9650, Cat3 Loss: 4.9613
+Val Cat1 Loss: 0.4178, Val Cat2 Loss: 2.1196, Val Cat3 Loss: 4.2136
+Train Accuracies: Cat1: 71.54%, Cat2: 30.04%, Cat3: 14.01%
+Val Accuracies: Cat1: 89.05%, Cat2: 49.70%, Cat3: 24.10%
+
+
+Epoch 2/20
+Training: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████| 500/500 [02:53<00:00,  2.88it/s]
+Validating: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████| 125/125 [00:14<00:00,  8.69it/s]
+Train Loss: 5.9754, Val Loss: 5.3715
+Cat1 Loss: 0.3207, Cat2 Loss: 1.8170, Cat3 Loss: 3.8378
+Val Cat1 Loss: 0.2943, Val Cat2 Loss: 1.5560, Val Cat3 Loss: 3.5213
+Train Accuracies: Cat1: 91.47%, Cat2: 56.34%, Cat3: 27.86%
+Val Accuracies: Cat1: 91.35%, Cat2: 60.55%, Cat3: 28.25%
+
+
+Epoch 3/20
+Training: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████| 500/500 [02:53<00:00,  2.88it/s]
+Validating: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████| 125/125 [00:14<00:00,  8.69it/s]
+Train Loss: 4.7410, Val Loss: 4.6649
+Cat1 Loss: 0.1727, Cat2 Loss: 1.3321, Cat3 Loss: 3.2362
+Val Cat1 Loss: 0.2733, Val Cat2 Loss: 1.2866, Val Cat3 Loss: 3.1050
+Train Accuracies: Cat1: 95.92%, Cat2: 67.34%, Cat3: 34.06%
+Val Accuracies: Cat1: 92.20%, Cat2: 67.05%, Cat3: 34.85%
+
+
+Epoch 4/20
+Training: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████| 500/500 [02:53<00:00,  2.88it/s]
+Validating: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████| 125/125 [00:14<00:00,  8.68it/s]
+Train Loss: 3.9445, Val Loss: 4.1630
+Cat1 Loss: 0.1065, Cat2 Loss: 1.0229, Cat3 Loss: 2.8151
+Val Cat1 Loss: 0.2592, Val Cat2 Loss: 1.1055, Val Cat3 Loss: 2.7983
+Train Accuracies: Cat1: 97.78%, Cat2: 75.60%, Cat3: 40.56%
+Val Accuracies: Cat1: 93.15%, Cat2: 73.15%, Cat3: 41.45%
+
+
+Epoch 5/20
+Training: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████| 500/500 [02:53<00:00,  2.88it/s]
+Validating: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████| 125/125 [00:14<00:00,  8.68it/s]
+Train Loss: 3.3325, Val Loss: 3.7713
+Cat1 Loss: 0.0710, Cat2 Loss: 0.7952, Cat3 Loss: 2.4664
+Val Cat1 Loss: 0.2486, Val Cat2 Loss: 0.9923, Val Cat3 Loss: 2.5304
+Train Accuracies: Cat1: 98.74%, Cat2: 81.99%, Cat3: 47.99%
+Val Accuracies: Cat1: 93.55%, Cat2: 74.95%, Cat3: 46.90%
+
+
+Epoch 6/20
+Training: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████| 500/500 [02:53<00:00,  2.88it/s]
+Validating: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████| 125/125 [00:14<00:00,  8.67it/s]
+Train Loss: 2.8721, Val Loss: 3.5569
+Cat1 Loss: 0.0537, Cat2 Loss: 0.6450, Cat3 Loss: 2.1734
+Val Cat1 Loss: 0.2660, Val Cat2 Loss: 0.9372, Val Cat3 Loss: 2.3536
+Train Accuracies: Cat1: 99.24%, Cat2: 85.95%, Cat3: 53.58%
+Val Accuracies: Cat1: 93.60%, Cat2: 78.40%, Cat3: 50.60%
+
+
+Epoch 7/20
+Training: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████| 500/500 [02:53<00:00,  2.88it/s]
+Validating: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████| 125/125 [00:14<00:00,  8.67it/s]
+Train Loss: 2.5037, Val Loss: 3.3433
+Cat1 Loss: 0.0423, Cat2 Loss: 0.5275, Cat3 Loss: 1.9338
+Val Cat1 Loss: 0.2560, Val Cat2 Loss: 0.8900, Val Cat3 Loss: 2.1973
+Train Accuracies: Cat1: 99.36%, Cat2: 88.94%, Cat3: 58.98%
+Val Accuracies: Cat1: 93.60%, Cat2: 79.60%, Cat3: 55.15%
+
+
+Epoch 8/20
+Training: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████| 500/500 [02:53<00:00,  2.88it/s]
+Validating: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████| 125/125 [00:14<00:00,  8.69it/s]
+Train Loss: 2.2073, Val Loss: 3.1790
+Cat1 Loss: 0.0336, Cat2 Loss: 0.4368, Cat3 Loss: 1.7369
+Val Cat1 Loss: 0.2607, Val Cat2 Loss: 0.8583, Val Cat3 Loss: 2.0600
+Train Accuracies: Cat1: 99.60%, Cat2: 91.15%, Cat3: 63.69%
+Val Accuracies: Cat1: 93.70%, Cat2: 80.05%, Cat3: 58.05%
+
+
+Epoch 9/20
+Training: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████| 500/500 [02:53<00:00,  2.88it/s]
+Validating: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████| 125/125 [00:14<00:00,  8.69it/s]
+Train Loss: 1.9661, Val Loss: 3.0341
+Cat1 Loss: 0.0276, Cat2 Loss: 0.3663, Cat3 Loss: 1.5721
+Val Cat1 Loss: 0.2586, Val Cat2 Loss: 0.8196, Val Cat3 Loss: 1.9558
+Train Accuracies: Cat1: 99.67%, Cat2: 93.19%, Cat3: 67.25%
+Val Accuracies: Cat1: 94.00%, Cat2: 81.65%, Cat3: 59.60%
+
+
+Epoch 10/20
+Training: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████| 500/500 [02:53<00:00,  2.88it/s]
+Validating: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████| 125/125 [00:14<00:00,  8.68it/s]
+Train Loss: 1.7780, Val Loss: 2.9777
+Cat1 Loss: 0.0252, Cat2 Loss: 0.3231, Cat3 Loss: 1.4297
+Val Cat1 Loss: 0.2702, Val Cat2 Loss: 0.8128, Val Cat3 Loss: 1.8946
+Train Accuracies: Cat1: 99.66%, Cat2: 94.08%, Cat3: 70.70%
+Val Accuracies: Cat1: 94.15%, Cat2: 82.20%, Cat3: 61.35%
+
+
+Epoch 11/20
+Training: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████| 500/500 [02:53<00:00,  2.88it/s]
+Validating: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████| 125/125 [00:14<00:00,  8.67it/s]
+Train Loss: 1.6282, Val Loss: 2.9078
+Cat1 Loss: 0.0208, Cat2 Loss: 0.2803, Cat3 Loss: 1.3272
+Val Cat1 Loss: 0.2750, Val Cat2 Loss: 0.8009, Val Cat3 Loss: 1.8319
+Train Accuracies: Cat1: 99.79%, Cat2: 95.56%, Cat3: 73.28%
+Val Accuracies: Cat1: 94.40%, Cat2: 83.05%, Cat3: 62.95%
+
+
+Epoch 12/20
+Training: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████| 500/500 [02:53<00:00,  2.88it/s]
+Validating: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████| 125/125 [00:14<00:00,  8.68it/s]
+Train Loss: 1.5152, Val Loss: 2.8586
+Cat1 Loss: 0.0201, Cat2 Loss: 0.2496, Cat3 Loss: 1.2455
+Val Cat1 Loss: 0.2742, Val Cat2 Loss: 0.7904, Val Cat3 Loss: 1.7939
+Train Accuracies: Cat1: 99.75%, Cat2: 96.21%, Cat3: 74.99%
+Val Accuracies: Cat1: 94.20%, Cat2: 82.70%, Cat3: 64.35%
+
+
+Epoch 13/20
+Training: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████| 500/500 [02:53<00:00,  2.88it/s]
+Validating: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████| 125/125 [00:14<00:00,  8.68it/s]
+Train Loss: 1.4262, Val Loss: 2.8218
+Cat1 Loss: 0.0161, Cat2 Loss: 0.2265, Cat3 Loss: 1.1836
+Val Cat1 Loss: 0.2746, Val Cat2 Loss: 0.7876, Val Cat3 Loss: 1.7596
+Train Accuracies: Cat1: 99.88%, Cat2: 96.84%, Cat3: 76.42%
+Val Accuracies: Cat1: 94.10%, Cat2: 83.20%, Cat3: 64.80%
+
+
+Epoch 14/20
+Training: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████| 500/500 [02:53<00:00,  2.88it/s]
+Validating: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████| 125/125 [00:14<00:00,  8.68it/s]
+Train Loss: 1.3704, Val Loss: 2.7918
+Cat1 Loss: 0.0150, Cat2 Loss: 0.2129, Cat3 Loss: 1.1425
+Val Cat1 Loss: 0.2725, Val Cat2 Loss: 0.7836, Val Cat3 Loss: 1.7358
+Train Accuracies: Cat1: 99.91%, Cat2: 97.03%, Cat3: 77.64%
+Val Accuracies: Cat1: 94.40%, Cat2: 83.10%, Cat3: 65.55%
+
+
+Epoch 15/20
+Training: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████| 500/500 [02:53<00:00,  2.88it/s]
+Validating: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████| 125/125 [00:14<00:00,  8.69it/s]
+Train Loss: 1.3337, Val Loss: 2.7871
+Cat1 Loss: 0.0142, Cat2 Loss: 0.2040, Cat3 Loss: 1.1154
+Val Cat1 Loss: 0.2729, Val Cat2 Loss: 0.7825, Val Cat3 Loss: 1.7316
+Train Accuracies: Cat1: 99.89%, Cat2: 97.47%, Cat3: 78.40%
+Val Accuracies: Cat1: 94.20%, Cat2: 83.35%, Cat3: 65.90%
+
+
+Epoch 16/20
+Training: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████| 500/500 [02:53<00:00,  2.88it/s]
+Validating: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████| 125/125 [00:14<00:00,  8.68it/s]
+Train Loss: 1.3282, Val Loss: 2.7871
+Cat1 Loss: 0.0138, Cat2 Loss: 0.2027, Cat3 Loss: 1.1117
+Val Cat1 Loss: 0.2729, Val Cat2 Loss: 0.7825, Val Cat3 Loss: 1.7316
+Train Accuracies: Cat1: 99.91%, Cat2: 97.26%, Cat3: 78.46%
+Val Accuracies: Cat1: 94.20%, Cat2: 83.35%, Cat3: 65.90%
+
+
+Epoch 17/20
+Training: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████| 500/500 [02:53<00:00,  2.88it/s]
+Validating: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████| 125/125 [00:14<00:00,  8.69it/s]
+Train Loss: 1.3207, Val Loss: 2.7871
+Cat1 Loss: 0.0138, Cat2 Loss: 0.2045, Cat3 Loss: 1.1023
+Val Cat1 Loss: 0.2729, Val Cat2 Loss: 0.7825, Val Cat3 Loss: 1.7316
+Train Accuracies: Cat1: 99.94%, Cat2: 97.15%, Cat3: 78.54%
+Val Accuracies: Cat1: 94.20%, Cat2: 83.35%, Cat3: 65.90%
+
+
+Epoch 18/20
+Training: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████| 500/500 [02:53<00:00,  2.88it/s]
+Validating: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████| 125/125 [00:14<00:00,  8.68it/s]
+Train Loss: 1.3228, Val Loss: 2.7871
+Cat1 Loss: 0.0149, Cat2 Loss: 0.2013, Cat3 Loss: 1.1065
+Val Cat1 Loss: 0.2729, Val Cat2 Loss: 0.7825, Val Cat3 Loss: 1.7316
+Train Accuracies: Cat1: 99.91%, Cat2: 97.56%, Cat3: 77.96%
+Val Accuracies: Cat1: 94.20%, Cat2: 83.35%, Cat3: 65.90%
+Early stopping
+Evaluating best model: 100%|██████████████████████████████████████████████████████████████████████████████████████| 125/125 [00:14<00:00,  8.68it/s]
+/home/cdui/miniconda3/envs/bassl-chay/lib/python3.8/site-packages/sklearn/metrics/_classification.py:1471: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/home/cdui/miniconda3/envs/bassl-chay/lib/python3.8/site-packages/sklearn/metrics/_classification.py:1471: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+
+Best Model Performance on Validation Data:
+Validation Loss: 2.7871
+
+Category 1:
+  Accuracy: 94.20%
+  Precision: 0.9427
+  Recall: 0.9420
+  F1 Score: 0.9422
+
+Category 2:
+  Accuracy: 83.35%
+  Precision: 0.8288
+  Recall: 0.8335
+  F1 Score: 0.8270
+
+Category 3:
+  Accuracy: 65.90%
+  Precision: 0.5794
+  Recall: 0.6590
+  F1 Score: 0.6039
