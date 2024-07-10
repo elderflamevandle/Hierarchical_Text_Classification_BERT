@@ -46,7 +46,7 @@ The model uses BERT as its base and adds three classification heads on top, one 
 
 ## Trained Model
 
-You can download the pre-trained model from [this link](https://drive.google.com/file/d/11LRc58OFsEeE-5a5Y60L-UPyr33cgJ6V/view?usp=sharing).
+The logs for trained model can be found at [this link](https://drive.google.com/file/d/1JnePVmkfaRqsIyK2UNbhMRUE_qMSZPtm/view?usp=drive_link). You can download the pre-trained model from [this link](https://drive.google.com/file/d/11LRc58OFsEeE-5a5Y60L-UPyr33cgJ6V/view?usp=sharing).
 
 To use the pre-trained model, download it and place it in the project directory. 
 
