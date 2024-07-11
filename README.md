@@ -1,4 +1,4 @@
-# Hierarchical Product Review Classification
+# Hierarchical_Text_Classification_BERT
 
 This project implements a hierarchical text classification model for product reviews using BERT. It classifies reviews into three levels of categories (Cat1, Cat2, Cat3) based on the review text.
 
