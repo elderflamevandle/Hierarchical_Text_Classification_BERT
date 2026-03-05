@@ -1,0 +1,25 @@
+[project]
+name = "hierarchical-text-classification"
+version = "0.1.0"
+description = "Multi-level Product Review Classification using Cascading BERT Heads"
+authors = [
+    {name = "Chaitanya"}
+]
+readme = "README.md"
+requires-python = "^3.9"
+dependencies = [
+    "torch (>=2.10.0,<3.0.0)",
+    "transformers (>=5.3.0,<6.0.0)",
+    "scikit-learn (>=1.8.0,<2.0.0)",
+    "pandas (>=3.0.1,<4.0.0)",
+    "numpy (>=2.4.2,<3.0.0)",
+    "tqdm (>=4.67.3,<5.0.0)",
+    "nltk (>=3.9.3,<4.0.0)",
+    "joblib (>=1.5.3,<2.0.0)",
+    "pyyaml (>=6.0.3,<7.0.0)"
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"

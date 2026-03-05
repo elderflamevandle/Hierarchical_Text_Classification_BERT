@@ -1,16 +1,20 @@
+import sys
+import os
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
+
 import pandas as pd
 import joblib
 import torch
 import tqdm
-from transformers import BertTokenizer
+from transformers import AutoTokenizer
 import numpy as np
 from torch.utils.data import DataLoader
 
-from model import HierarchicalProductClassifier
-from dataset import ProductDataset
-from data_preprocessing import preprocess_text
+from src.models.model import HierarchicalProductClassifier
+from src.data.dataset import ProductDataset
+from src.data.data_preprocessing import preprocess_text
 
-def evaluate_on_unseen_data(unseen_csv_path, model_path, le1_path, le2_path, le3_path):
+def evaluate_on_unseen_data(unseen_csv_path, model_path, le_paths, model_name='bert-base-uncased'):
 
     # Load unseen data
     unseen_df = pd.read_csv(unseen_csv_path)
@@ -25,24 +29,24 @@ def evaluate_on_unseen_data(unseen_csv_path, model_path, le1_path, le2_path, le3
     unseen_df['text'] = unseen_df['text'].apply(preprocess_text)
     
     # Load label encoders
-    le1 = joblib.load(le1_path)
-    le2 = joblib.load(le2_path)
-    le3 = joblib.load(le3_path)
+    label_encoders = [joblib.load(path) for path in le_paths]
+    n_levels = len(label_encoders)
     
     # Load model
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-    model = HierarchicalProductClassifier(len(le1.classes_), len(le2.classes_), len(le3.classes_))
+    n_classes_list = [len(le.classes_) for le in label_encoders]
+    model = HierarchicalProductClassifier(n_classes_list, model_name=model_name)
     model.load_state_dict(torch.load(model_path, map_location=device))
     model = model.to(device)
     model.eval()
     
     # Initialize tokenizer
-    tokenizer = BertTokenizer.from_pretrained('bert-base-uncased')
+    tokenizer = AutoTokenizer.from_pretrained(model_name)
     
     # Create dataset and dataloader
     unseen_dataset = ProductDataset(
         texts=unseen_df.text.to_numpy(),
-        labels=np.zeros((len(unseen_df), 3)),  # Dummy labels
+        labels=np.zeros((len(unseen_df), n_levels)),  # Dynamic Dummy labels
         tokenizer=tokenizer,
         max_len=128
     )
@@ -52,30 +56,32 @@ def evaluate_on_unseen_data(unseen_csv_path, model_path, le1_path, le2_path, le3
     predictions = []
     
     with torch.no_grad():
-        for batch in tqdm(unseen_dataloader, desc="Evaluating on unseen data"):
+        for batch in tqdm.tqdm(unseen_dataloader, desc="Evaluating on unseen data"):
             input_ids = batch["input_ids"].to(device)
             attention_mask = batch["attention_mask"].to(device)
             
-            outputs1, outputs2, outputs3 = model(input_ids=input_ids, attention_mask=attention_mask)
+            outputs = model(input_ids=input_ids, attention_mask=attention_mask)
             
-            _, preds1 = torch.max(outputs1, dim=1)
-            _, preds2 = torch.max(outputs2, dim=1)
-            _, preds3 = torch.max(outputs3, dim=1)
+            # Predict for all levels
+            batch_preds = []
+            for i in range(n_levels):
+                _, preds = torch.max(outputs[i], dim=1)
+                batch_preds.append(preds)
             
             # Store predictions
-            for i in range(len(preds1)):
-                predictions.append({
-                    'text': batch['text'][i],
-                    'pred_cat1': le1.inverse_transform([preds1[i].item()])[0],
-                    'pred_cat2': le2.inverse_transform([preds2[i].item()])[0],
-                    'pred_cat3': le3.inverse_transform([preds3[i].item()])[0]
-                })
+            for i in range(len(batch_preds[0])):
+                pred_dict = {'text': batch['text'][i]}
+                for level in range(n_levels):
+                    pred_dict[f'pred_cat{level+1}'] = label_encoders[level].inverse_transform([batch_preds[level][i].item()])[0]
+                predictions.append(pred_dict)
     
     # Create DataFrame from predictions
     predictions_df = pd.DataFrame(predictions)
     
+    pred_columns = [f'pred_cat{level+1}' for level in range(n_levels)]
+    
     # Merge predictions with original data
-    result_df = pd.concat([unseen_df, predictions_df[['pred_cat1', 'pred_cat2', 'pred_cat3']]], axis=1)
+    result_df = pd.concat([unseen_df, predictions_df[pred_columns]], axis=1)
     
     # Save predictions to CSV
     result_df.to_csv('unseen_data_predictions.csv', index=False)
@@ -84,8 +90,6 @@ def evaluate_on_unseen_data(unseen_csv_path, model_path, le1_path, le2_path, le3
 # Usage example
 if __name__ == '__main__':
     unseen_csv_path = '/path/to/your/unseen_data.csv'  # Update this path
-    model_path='best_model.pth', 
-    le1_path='le1.joblib', 
-    le2_path='le2.joblib', 
-    le3_path='le3.joblib'
-    evaluate_on_unseen_data(unseen_csv_path, model_path, le1_path, le2_path, le3_path)
+    model_path='best_model.pth'
+    le_paths=['le1.joblib', 'le2.joblib', 'le3.joblib']
+    evaluate_on_unseen_data(unseen_csv_path, model_path, le_paths)

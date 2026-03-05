@@ -1,0 +1,52 @@
+# Claude
+.claude/
+CLAUDE.md
+
+# Virtual Environments
+venv/
+env/
+.env
+.venv/
+env.bak/
+venv.bak/
+
+# Environment Variables
+.env
+.env.local
+
+# Poetry
+poetry.lock
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# PyTorch & Model Artifacts
+*.pth
+*.pt
+*.ckpt
+*.onnx
+best_model.pth
+
+# Logs & Debug
+logs/
+*.log
+
+# Data
+data/raw/
+data/processed/
+*.csv
+*.joblib
+*.pkl
+
+# Jupyter
+.ipynb_checkpoints
+*.ipynb
+
+# IDEs
+.idea/
+.vscode/
+*.swp
+*.swo
